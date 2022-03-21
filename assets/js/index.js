@@ -1,6 +1,6 @@
 var cityList =$("#city-list");
 var cities = [];
-var key = "fc8bffadcdca6a94d021c093eac22797";
+var key = "d930c070bf03b4659f73c25572b08500";
 
 
 function displayDate(date){
@@ -14,11 +14,6 @@ function displayDate(date){
         (day<10 ? '0' : '') + day;
     return dayOutput;
 }
-
-
-
-
-init();
 
 
 function init(){
@@ -96,7 +91,7 @@ function renderCities() {
     }).then(function(response) {
         
       
-      cityTitle = $("<h3>").text(response.name + " "+ FormatDay());
+      cityTitle = $("<h3>").text(response.name + " "+ init());
       $("#today-weather").append(cityTitle);
       var TempetureToNum = parseInt((response.main.temp)* 9/5 - 459);
       var cityTemperature = $("<p>").text("Tempeture: "+ TempetureToNum + " °F");
@@ -179,7 +174,7 @@ function renderCities() {
                     FivedayDiv.append(pHumidity);
                     $("#boxes").append(FivedayDiv);
                     console.log(response5day);
-                    j++;
+                    
                 }
             
         }
@@ -195,3 +190,4 @@ function renderCities() {
     var thisCity = $(this).attr("data-city");
     getResponseWeather(thisCity);
   });
+//   init();
